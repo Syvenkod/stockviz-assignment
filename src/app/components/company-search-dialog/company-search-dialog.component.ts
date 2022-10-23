@@ -11,7 +11,7 @@ import { CommonService } from 'src/app/service/common-service';
 })
 export class CompanySearchDialogComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['Name of company', 'Region', 'Sector', 'Industry'];
+  displayedColumns: string[] = ['name', 'region_id', 'sector', 'industry'];
   dataSource: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
