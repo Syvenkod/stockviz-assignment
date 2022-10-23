@@ -1,1 +1,43 @@
-<p>company-search-dialog works!</p>
+<div class="company-search">
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>x</button>
+  </div>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Enter here" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="Name of company">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name of company </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Region">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Region </th>
+        <td mat-cell *matCellDef="let row"> {{row.region_id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Sector">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sector</th>
+        <td mat-cell *matCellDef="let row"> {{row.sector}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Industry">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Industry</th>
+        <td mat-cell *matCellDef="let row"> {{row.industry}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>
