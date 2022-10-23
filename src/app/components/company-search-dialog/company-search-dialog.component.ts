@@ -33,7 +33,11 @@ export class CompanySearchDialogComponent implements OnInit,
       this.dataSource = new MatTableDataSource(Object.values(res));
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.filterPredicate = function(data: any, filter: string): boolean {
+        return data.name.toLowerCase().includes(filter) || data.region_id.includes(filter);
+      };
     })
+
     this.service.getRegions().subscribe(res=>{
       let dataRegions = Object.values(res);
       this.regions = [];
@@ -52,10 +56,15 @@ export class CompanySearchDialogComponent implements OnInit,
       this.dataSource.paginator.firstPage();
     }
   }
+  applySelect(selectedRegion:any) {
+    this.dataSource.filter = selectedRegion;
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
   ngAfterContentChecked(): void {
 
   }
-
 
 }

@@ -9,11 +9,9 @@
   <h4>Region selection</h4>
 <mat-form-field appearance="fill">
   <mat-select [(value)]="selectedRegion">
-    <mat-option></mat-option>
-    <mat-option [value]="option.id" *ngFor="let option of regions">{{ option.id }}</mat-option>
+    <mat-option [value]="option.id" *ngFor="let option of regions" (click)="applySelect(selectedRegion)">{{ option.id }}</mat-option>
   </mat-select>
 </mat-form-field>
-<p>You selected: {{selectedRegion}}</p>
   <h4>Search company</h4>
   <mat-form-field appearance="standard">
     <mat-label>Enter here</mat-label>
