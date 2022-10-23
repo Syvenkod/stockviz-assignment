@@ -42,8 +42,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: min(100% - 15px, 1380px);
   height: 95%;
   margin-inline: auto;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   overflow: hidden;
   border: 1px solid lightgray;
   box-shadow: -1px 1px 5px rgba(#333, 0.2);

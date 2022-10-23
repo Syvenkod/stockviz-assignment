@@ -14,19 +14,16 @@ export class StockvizSidebarComponent implements OnInit{
   constructor(private service:CommonService,
   public dialog: MatDialog) { }
 
-  openDialog() {
-      this.dialog.open(CompanySearchDialogComponent);
-      this.service.getCompanies().subscribe(res=>{
-        console.log(res);
-      })
-      this.service.getRegions().subscribe(res=>{
-        console.log(res);
-      })
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
+      this.dialog.open(CompanySearchDialogComponent, {
+        width: '80%',
+        enterAnimationDuration,
+        exitAnimationDuration,
+      });
+
     }
 
-
   ngOnInit(): void {
-
 
   }
 

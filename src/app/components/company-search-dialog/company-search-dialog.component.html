@@ -1,22 +1,26 @@
+
 <div class="company-search">
  <div class="header">
   <h2>FIND COMPANY</h2>
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close>x</button>
-  </div>
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
 </div>
+<div class="choice">
 <div class="select">
-  <h4>Region selection</h4>
-<mat-form-field appearance="fill">
+  <h5>Region selection</h5>
+ <mat-form-field appearance="fill">
   <mat-select [(value)]="selectedRegion">
     <mat-option [value]="option.id" *ngFor="let option of regions" (click)="applySelect(selectedRegion)">{{ option.id }}</mat-option>
   </mat-select>
-</mat-form-field>
-  <h4>Search company</h4>
+</mat-form-field></div>
+<div class="search">
+  <h5>Search company</h5>
   <mat-form-field appearance="standard">
     <mat-label>Enter here</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Enter here" #input>
   </mat-form-field>
+</div>
 </div>
   <div class="mat-elevation-z8"  tabindex="0">
     <table mat-table [dataSource]="dataSource" matSort>
