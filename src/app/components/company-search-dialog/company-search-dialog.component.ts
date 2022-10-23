@@ -1,18 +1,23 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CommonService } from 'src/app/service/common-service';
+
 
 @Component({
   selector: 'app-company-search-dialog',
   templateUrl: './company-search-dialog.component.html',
   styleUrls: ['./company-search-dialog.component.scss']
 })
-export class CompanySearchDialogComponent implements OnInit, AfterViewInit {
+export class CompanySearchDialogComponent implements OnInit,
+                                              AfterViewInit,
+                                              AfterContentChecked {
 
   displayedColumns: string[] = ['name', 'region_id', 'sector', 'industry'];
   dataSource: any;
+  regions: any;
+  selectedRegion: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
@@ -29,7 +34,14 @@ export class CompanySearchDialogComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
-
+    this.service.getRegions().subscribe(res=>{
+      let dataRegions = Object.values(res);
+      this.regions = [];
+      dataRegions.forEach(region =>{
+      this.regions.push({id: region.id});
+      })
+      this.selectedRegion = this.regions.id;
+    })
   }
 
   applyFilter(event: Event) {
@@ -40,4 +52,10 @@ export class CompanySearchDialogComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  ngAfterContentChecked(): void {
+
+  }
+
+
 }
