@@ -1,9 +1,14 @@
-import { AfterContentChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Company } from 'src/app/models/company';
+import { AfterContentChecked, AfterViewInit, Component, Input, OnInit, ViewChild, Inject } from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CommonService } from 'src/app/service/common-service';
 
+export interface DialogData {
+  name: string;
+}
 
 @Component({
   selector: 'app-company-search-dialog',
@@ -18,11 +23,14 @@ export class CompanySearchDialogComponent implements OnInit,
   dataSource: any;
   regions: any;
   selectedRegion: any;
+  clickedRows = new Set<Company>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
 
-  constructor(private service:CommonService,) { }
+  constructor(private service:CommonService,
+              public dialogRef: MatDialogRef<CompanySearchDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData,) { }
 
   ngAfterViewInit() {
 
@@ -48,8 +56,8 @@ export class CompanySearchDialogComponent implements OnInit,
     })
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+  applyFilter(input: { value: string; }) {
+    const filterValue = input.value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
@@ -62,6 +70,7 @@ export class CompanySearchDialogComponent implements OnInit,
       this.dataSource.paginator.firstPage();
     }
   }
+
 
   ngAfterContentChecked(): void {
 

@@ -11,17 +11,25 @@ import { CompanySearchDialogComponent } from '../company-search-dialog/company-s
   styleUrls: ['./stockviz-sidebar.component.scss']
 })
 export class StockvizSidebarComponent implements OnInit{
+  clickedCompany: any | undefined;
   constructor(private service:CommonService,
   public dialog: MatDialog) { }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
-      this.dialog.open(CompanySearchDialogComponent, {
+     const dialogRef = this.dialog.open(CompanySearchDialogComponent, {
         width: '80%',
         enterAnimationDuration,
         exitAnimationDuration,
+        data: {name: this.clickedCompany}
       });
+      dialogRef.afterClosed().subscribe(res =>{
+        console.log('The dialog was closed');
+        this.clickedCompany = res;
+        this.service.clickedCompany(res);
+      })
 
     }
+
 
   ngOnInit(): void {
 

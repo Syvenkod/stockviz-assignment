@@ -8,9 +8,15 @@ import { CommonService } from 'src/app/service/common-service';
 })
 export class StockvizCompanyDetailsComponent implements OnInit {
 
-  constructor(private service:CommonService) { }
+  clickedCompany: any;
+  constructor(private service:CommonService) {
+    this.service.clickedCompany$.subscribe((data) => {
+      this.clickedCompany = data;
+    });
+}
 
   ngOnInit(): void {
+
   }
 
 }

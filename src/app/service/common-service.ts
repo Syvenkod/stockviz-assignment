@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { Company } from '../models/company';
 import { Region } from '../models/region';
 
@@ -9,6 +9,8 @@ import { Region } from '../models/region';
 })
 export class CommonService{
 
+  private clickedCompanySubject = new Subject<any>();
+  clickedCompany$ = this.clickedCompanySubject.asObservable();
   constructor(private http: HttpClient) { }
 
   getCompanies():Observable<Company[]>{
@@ -24,6 +26,10 @@ export class CommonService{
       return this.http.get<Region[]>('../../assets/regions.json')
       .pipe( catchError(this.handleError));
   }
+
+  clickedCompany(data: any) {
+    this.clickedCompanySubject.next(data);
+}
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
