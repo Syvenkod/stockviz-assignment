@@ -1,10 +1,15 @@
-import { Directive } from '@angular/core';
+import { AfterContentInit, Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { MatInput } from '@angular/material/input';
 
 @Directive({
   selector: '[appAutofocus]'
 })
-export class AutofocusDirective {
+export class AutofocusDirective implements OnInit {
+  constructor(private matInput: MatInput) { }
 
-  constructor() { }
-
+  public ngOnInit(): void {
+    setTimeout(()=> {
+      this.matInput.focus();
+    }, 1500)
+  }
 }
