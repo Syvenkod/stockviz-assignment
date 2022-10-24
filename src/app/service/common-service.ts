@@ -8,7 +8,6 @@ import { Region } from '../models/region';
   providedIn: 'root'
 })
 export class CommonService{
-
   private clickedCompanySubject = new Subject<any>();
   clickedCompany$ = this.clickedCompanySubject.asObservable();
   constructor(private http: HttpClient) { }
@@ -17,14 +16,14 @@ export class CommonService{
     // TO DO
     //  load companies data from asset folder
     return this.http.get<Company[]>('../../assets/companies.json')
-      .pipe( catchError(this.handleError));
+      .pipe(catchError(this.handleError));
  }
 
   getRegions():Observable<Region[]>{
     // TO DO
       //  load region data from asset folder
       return this.http.get<Region[]>('../../assets/regions.json')
-      .pipe( catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   clickedCompany(data: any) {

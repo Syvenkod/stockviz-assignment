@@ -23,7 +23,6 @@ export class StockvizSidebarComponent implements OnInit{
         data: {name: this.clickedCompany}
       });
       dialogRef.afterClosed().subscribe(res =>{
-        console.log('The dialog was closed');
         this.clickedCompany = res;
         this.service.clickedCompany(res);
       })
