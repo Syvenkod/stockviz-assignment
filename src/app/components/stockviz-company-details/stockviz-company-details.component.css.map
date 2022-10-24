@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAA;EACZ,MAAM,EAAE,eAAe;EACvB,OAAO,EAAE,IAAI;EACb,kBAAkB,EAAE,WAAW;EAC/B,OAAO,EAAE,IAAI;EACb,OAAO,EAAE,EAAE;CAQd;;AAbD,AAMI,gBANY,CAMZ,EAAE,EANN,gBAAgB,CAMR,IAAI,CAAA;EACJ,WAAW,EAAE,GAAG;CACnB;;AARL,AASI,gBATY,CASZ,cAAc,EATlB,gBAAgB,CASI,OAAO,CAAA;EACnB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;CACjC",
+    "sources": [
+        "stockviz-company-details.component.scss"
+    ],
+    "names": [],
+    "file": "stockviz-company-details.component.css"
+}

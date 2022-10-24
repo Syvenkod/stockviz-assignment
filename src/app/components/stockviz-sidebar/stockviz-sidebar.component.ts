@@ -8,7 +8,8 @@ import { CompanySearchDialogComponent } from '../company-search-dialog/company-s
 @Component({
   selector: 'app-stockviz-sidebar',
   templateUrl: './stockviz-sidebar.component.html',
-  styleUrls: ['./stockviz-sidebar.component.scss']
+  styleUrls: ['./stockviz-sidebar.component.scss'],
+
 })
 export class StockvizSidebarComponent implements OnInit{
   clickedCompany: any | undefined;
@@ -28,7 +29,18 @@ export class StockvizSidebarComponent implements OnInit{
       })
 
     }
+  collapsed = false;
+  toggle() {
+    this.collapsed = !this.collapsed;
+  }
 
+  expand() {
+    this.collapsed = false;
+  }
+
+  collapse() {
+    this.collapsed = true;
+  }
 
   ngOnInit(): void {
 

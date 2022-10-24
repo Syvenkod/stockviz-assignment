@@ -1,4 +1,6 @@
-<div class="sidebar">
-<button id="find-company" mat-raised-button (click)="openDialog('1000ms', '1000ms')"><mat-icon>search</mat-icon>Find-company</button>
-<button id="collapse" mat-raised-button>collapse</button>
+<div class="sidebar collapsible">
+<button *ngIf="collapsed"  mat-raised-button (click)="openDialog('1000ms', '1000ms')"><mat-icon>search</mat-icon></button>
+<button *ngIf="!collapsed" mat-raised-button (click)="openDialog('1000ms', '1000ms')"><mat-icon>search</mat-icon>Find-company</button>
+<button *ngIf="collapsed" (click)="expand()" mat-raised-button><mat-icon>arrow_right_alt</mat-icon></button>
+<button *ngIf="!collapsed" (click)="collapse()" mat-raised-button><mat-icon>arrow_left_alt</mat-icon>Collapse</button>
 </div>

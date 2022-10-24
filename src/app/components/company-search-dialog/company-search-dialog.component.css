@@ -1,0 +1,68 @@
+.company-search {
+  height: 90vh;
+}
+
+.company-search .header, .company-search .search-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.company-search .header .search-button, .company-search .search-form .search-button {
+  height: 30px;
+  margin: auto;
+}
+
+.company-search .header .close-button, .company-search .search-form .close-button {
+  float: right;
+  top: -20px;
+  right: -20px;
+}
+
+.company-search .header .close-button .close-icon, .company-search .search-form .close-button .close-icon {
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+.company-search .header .close-button .close-icon:hover, .company-search .search-form .close-button .close-icon:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.company-search .choice {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 25px;
+          column-gap: 25px;
+  row-gap: 5px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+/*# sourceMappingURL=company-search-dialog.component.css.map */
