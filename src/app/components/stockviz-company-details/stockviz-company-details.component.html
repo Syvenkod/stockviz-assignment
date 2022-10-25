@@ -7,7 +7,7 @@
         <div><p>Region</p><span>{{company.region_id}}</span></div>
         <div><p>Sector</p><span>{{company.sector}}</span> </div>
         <div><p>Industry</p><span>{{company.industry}}</span></div>
-        <div><p>Stock price</p><span>{{company.price | currency}}</span></div>
+        <div><p>Stock price</p><span>{{company.price | currency: currency : 'symbol-narrow'}}</span></div>
         <div><p>Employees</p><span>{{company.employees | number: '2.'}}</span></div>
     </div>
         <div class="description">
