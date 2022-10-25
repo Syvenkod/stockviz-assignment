@@ -66,6 +66,8 @@ MIT
 @angular/router
 MIT
 
+@minni/read-more
+
 rxjs
 Apache-2.0
                                Apache License
