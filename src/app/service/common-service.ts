@@ -10,6 +10,8 @@ import { Region } from '../models/region';
 export class CommonService{
   private clickedCompanySubject = new Subject<any>();
   clickedCompany$ = this.clickedCompanySubject.asObservable();
+  private currencySubject = new Subject<string>();
+  currentCurrency$ = this.currencySubject.asObservable();
   constructor(private http: HttpClient) { }
 
   getCompanies():Observable<Company[]>{
@@ -28,7 +30,11 @@ export class CommonService{
 
   clickedCompany(data: any) {
     this.clickedCompanySubject.next(data);
-}
+  }
+
+  currentCurrency(data: any) {
+    this.currencySubject.next(data);
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

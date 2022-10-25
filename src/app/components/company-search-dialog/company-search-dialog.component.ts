@@ -1,5 +1,5 @@
 import { Company } from 'src/app/models/company';
-import { AfterContentChecked, AfterViewInit, Component, Input, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -15,15 +15,14 @@ export interface DialogData {
   templateUrl: './company-search-dialog.component.html',
   styleUrls: ['./company-search-dialog.component.scss']
 })
-export class CompanySearchDialogComponent implements OnInit,
-                                              AfterViewInit,
-                                              AfterContentChecked {
+export class CompanySearchDialogComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'region_id', 'sector', 'industry'];
   dataSource: any;
   regions: any;
   selectedRegion: any;
-  clickedRows = new Set<Company>();
+  clickedRow = new Set<Company>();
+  currency: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
@@ -31,10 +30,6 @@ export class CompanySearchDialogComponent implements OnInit,
   constructor(private service:CommonService,
               public dialogRef: MatDialogRef<CompanySearchDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: DialogData,) { }
-
-  ngAfterViewInit() {
-
-  }
 
   ngOnInit(): void {
     this.service.getCompanies().subscribe(res=>{
@@ -59,10 +54,18 @@ export class CompanySearchDialogComponent implements OnInit,
     })
   }
 
+  getCurrency(){
+    let clickedRegion = Array.from(this.clickedRow)[0].region_id;
+    this.regions.forEach((region:any) =>{
+      if(clickedRegion === region.id){
+        this.currency = region.currency;}
+    })
+    this.service.currentCurrency(this.currency)
+  }
+
   applyFilter(input: { value: string; }) {
     const filterValue = input.value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -73,10 +76,4 @@ export class CompanySearchDialogComponent implements OnInit,
       this.dataSource.paginator.firstPage();
     }
   }
-
-
-  ngAfterContentChecked(): void {
-
-  }
-
 }

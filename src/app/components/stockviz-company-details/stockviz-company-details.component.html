@@ -1,7 +1,7 @@
     <div *ngFor="let company of clickedCompany" class="company-details">
       <div class="header-detail">
         <h3>{{company.name}}</h3>
-        <div>NASDAQ <span>{{company.id}}</span> currency <span>USD</span></div>
+        <div>NASDAQ <span>{{company.id}}</span> currency <span>{{currency}}</span></div>
       </div>
       <div class="detail">
         <div><p>Region</p><span>{{company.region_id}}</span></div>

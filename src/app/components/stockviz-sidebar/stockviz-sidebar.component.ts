@@ -1,4 +1,3 @@
-import { Company } from './../../models/company';
 import { AfterViewInit, Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonService } from 'src/app/service/common-service';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,6 +17,12 @@ export class StockvizSidebarComponent implements OnInit{
   constructor(private service:CommonService,
   public dialog: MatDialog) { }
 
+  @Output() onCollapsed = new EventEmitter<boolean>()
+  change(event:any){
+    this.collapsed = !this.collapsed;
+    this.onCollapsed.emit(event);
+  }
+
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
      const dialogRef = this.dialog.open(CompanySearchDialogComponent, {
         width: '80%',
@@ -25,20 +30,12 @@ export class StockvizSidebarComponent implements OnInit{
         exitAnimationDuration,
         data: {name: this.clickedCompany}
       });
-      dialogRef.afterClosed().subscribe(res =>{
-        this.clickedCompany = res;
-        this.service.clickedCompany(res);
+      dialogRef.afterClosed().subscribe(result =>{
+        this.clickedCompany = Array.from(result);
+        this.service.clickedCompany(this.clickedCompany);
       })
-
     }
-    @Output() onCollapsed = new EventEmitter<boolean>()
-        change(event:any){
-          this.collapsed = !this.collapsed
-          this.onCollapsed.emit(event)
-        }
 
   ngOnInit(): void {
-
   }
-
 }

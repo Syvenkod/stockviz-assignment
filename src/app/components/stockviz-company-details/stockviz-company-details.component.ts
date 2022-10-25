@@ -11,6 +11,8 @@ export class StockvizCompanyDetailsComponent implements OnInit {
 
   clickedCompany: any;
   description: string | undefined;
+  currency:any;
+
   constructor(private service:CommonService) {
     this.service.clickedCompany$.subscribe((data) => {
       this.clickedCompany = data;
@@ -20,7 +22,9 @@ export class StockvizCompanyDetailsComponent implements OnInit {
       Deserunt, quasi commodi deleniti fugiat ullam excepturi minus accusantium ad, laboriosam illo, cum sint labore voluptas distinctio nulla culpa. Dolorum reiciendis non aspernatur, dicta nobis ipsa sapiente alias ratione commodi.
       Repudiandae tenetur quod reprehenderit, quasi aliquam a totam harum voluptates facilis impedit molestiae ea repellat provident rerum eos optio! Enim fuga dignissimos obcaecati ducimus neque, consequatur unde ea sunt numquam.`
     });
+    this.service.currentCurrency$.subscribe((data) =>{this.currency = data})
 }
+
   readMoreOption: ReadMoreOptions = {
   readLessText: 'Read less',
   readMoreText: 'Read more',
