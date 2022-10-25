@@ -14,7 +14,7 @@ import { CompanySearchDialogComponent } from '../company-search-dialog/company-s
 })
 export class StockvizSidebarComponent implements OnInit{
   clickedCompany: any | undefined;
-  collapsed = false;
+  collapsed: boolean = false;
   constructor(private service:CommonService,
   public dialog: MatDialog) { }
 

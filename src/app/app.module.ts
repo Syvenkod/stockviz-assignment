@@ -19,7 +19,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { NgxsReadMoreModule } from '@minni/read-more';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     MatSelectModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgxsReadMoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

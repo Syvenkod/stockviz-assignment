@@ -1,4 +1,3 @@
-
     <div *ngFor="let company of clickedCompany" class="company-details">
       <div class="header-detail">
         <h3>{{company.name}}</h3>
@@ -9,7 +8,11 @@
         <div><p>Sector</p><span>{{company.sector}}</span> </div>
         <div><p>Industry</p><span>{{company.industry}}</span></div>
         <div><p>Stock price</p><span>{{company.price | currency}}</span></div>
-        <div><p>Employees</p><span>{{company.employees}}</span></div>
+        <div><p>Employees</p><span>{{company.employees | number: '2.'}}</span></div>
     </div>
-        <div class="description">Description</div>
+        <div class="description">
+          <p>Description</p>
+          <span readMore="3" [readMoreOptions]="readMoreOption">
+            {{description}}</span>
+        </div>
     </div>
