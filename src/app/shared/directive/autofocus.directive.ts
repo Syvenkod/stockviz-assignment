@@ -1,15 +1,15 @@
-import { AfterContentInit, Directive, ElementRef, Input } from '@angular/core';
+import { AfterContentInit, Directive, ElementRef, Input} from '@angular/core';
 
 @Directive({
-  selector: '[appAutofocus]'
+  selector: '[autofocus]'
 })
 export class AutofocusDirective implements AfterContentInit {
   @Input() public appAutofocus: boolean | undefined;
-  constructor() { }
+  constructor(private element: ElementRef) { }
 
   public ngAfterContentInit(): void {
-    // setTimeout(()=> {
-    //   this.element.nativeElement.focus();
-    // }, 500)
+    setTimeout(()=> {
+      this.element.nativeElement.focus();
+    }, 2000)
   }
 }

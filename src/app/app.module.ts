@@ -7,6 +7,7 @@ import { StockvizSidebarComponent } from './components/stockviz-sidebar/stockviz
 import { StockvizCompanyDetailsComponent } from './components/stockviz-company-details/stockviz-company-details.component';
 import { CompanySearchDialogComponent } from './components/company-search-dialog/company-search-dialog.component';
 import { FormatePipe } from './shared/pipe/formate.pipe';
+import { AutofocusDirective } from './shared/directive/autofocus.directive'
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCommonModule } from '@angular/material/core';
@@ -29,6 +30,7 @@ import { NgxsReadMoreModule } from '@minni/read-more';
     StockvizCompanyDetailsComponent,
     CompanySearchDialogComponent,
     FormatePipe,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { NgxsReadMoreModule } from '@minni/read-more';
     MatSelectModule,
     MatButtonModule,
     MatIconModule,
-    NgxsReadMoreModule
+    NgxsReadMoreModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
