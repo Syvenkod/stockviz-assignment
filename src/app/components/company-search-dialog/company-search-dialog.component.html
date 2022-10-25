@@ -11,7 +11,7 @@
   <h5>Region selection</h5>
  <mat-form-field appearance="fill">
   <mat-select [(value)]="selectedRegion">
-    <mat-option [value]="option.id" *ngFor="let option of regions" (click)="applySelect(selectedRegion)">{{ option.id }}</mat-option>
+    <mat-option [value]="region.id" *ngFor="let region of regions" (click)="applySelect(selectedRegion)">{{ region.name }}</mat-option>
   </mat-select>
 </mat-form-field></div>
 <div class="search">
