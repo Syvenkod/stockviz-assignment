@@ -1,8 +1,9 @@
 import { Company } from './../../models/company';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonService } from 'src/app/service/common-service';
 import { MatDialog } from '@angular/material/dialog';
 import { CompanySearchDialogComponent } from '../company-search-dialog/company-search-dialog.component';
+
 
 
 @Component({
@@ -13,6 +14,7 @@ import { CompanySearchDialogComponent } from '../company-search-dialog/company-s
 })
 export class StockvizSidebarComponent implements OnInit{
   clickedCompany: any | undefined;
+  collapsed = false;
   constructor(private service:CommonService,
   public dialog: MatDialog) { }
 
@@ -29,18 +31,11 @@ export class StockvizSidebarComponent implements OnInit{
       })
 
     }
-  collapsed = false;
-  toggle() {
-    this.collapsed = !this.collapsed;
-  }
-
-  expand() {
-    this.collapsed = false;
-  }
-
-  collapse() {
-    this.collapsed = true;
-  }
+    @Output() onCollapsed = new EventEmitter<boolean>()
+        change(event:any){
+          this.collapsed = !this.collapsed
+          this.onCollapsed.emit(event)
+        }
 
   ngOnInit(): void {
 

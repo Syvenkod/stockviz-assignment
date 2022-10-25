@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Stockviz';
+  flag = false;
+
+  onCollapsed (event:any){
+    this.flag = !this.flag
+  }
+
 }

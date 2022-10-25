@@ -1,4 +1,4 @@
-<div class="container">
-<app-stockviz-sidebar></app-stockviz-sidebar>
+<div class="container" [class.collapse]="flag">
+<app-stockviz-sidebar (onCollapsed)="onCollapsed($event)"></app-stockviz-sidebar>
 <app-stockviz-company-details ></app-stockviz-company-details>
 </div>
