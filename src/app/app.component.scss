@@ -4,7 +4,6 @@
     margin-inline: auto;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    // display: flex;
     overflow: hidden;
     border: 1px solid lightgray;
     box-shadow: -1px 1px 5px rgba(#333, 0.2);
@@ -20,4 +19,7 @@
 
   .collapse{
     grid-template-columns: 1fr 7fr;
+  }
+  .content{
+    display: none;
   }

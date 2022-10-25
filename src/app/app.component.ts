@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Stockviz';
+  title = 'stockviz-assignment';
   flag = false;
 
   onCollapsed (event:any){

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonService } from 'src/app/service/common-service';
 import { MatDialog } from '@angular/material/dialog';
 import { CompanySearchDialogComponent } from '../company-search-dialog/company-search-dialog.component';

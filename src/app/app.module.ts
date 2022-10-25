@@ -32,8 +32,8 @@ import { NgxsReadMoreModule } from '@minni/read-more';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatCommonModule,
     MatDialogModule,

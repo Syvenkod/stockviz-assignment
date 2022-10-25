@@ -1,13 +1,19 @@
 import { TestBed } from '@angular/core/testing';
-
-import { CommonServiceService } from './common-service';
+import { CommonService } from './common-service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
 
 describe('CommonServiceService', () => {
-  let service: CommonServiceService;
+  let service: CommonService;
+  let httpClient: HttpClient;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(CommonServiceService);
+
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ]
+    });
+    service = TestBed.inject(CommonService);
+    httpClient = TestBed.inject(HttpClient);
   });
 
   it('should be created', () => {
