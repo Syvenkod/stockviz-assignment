@@ -17,6 +17,9 @@ export class StockvizSidebarComponent implements OnInit{
   constructor(private service:CommonService,
   public dialog: MatDialog) { }
 
+  iconRight: string = 'arrow_right_alt';
+  iconLeft: string = 'arrow_left_alt';
+
   @Output() onCollapsed = new EventEmitter<boolean>()
   change(event:any){
     this.collapsed = !this.collapsed;
