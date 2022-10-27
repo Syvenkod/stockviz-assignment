@@ -42,14 +42,7 @@ export class CompanySearchDialogComponent implements OnInit {
     })
 
     this.service.getRegions().subscribe(res=>{
-      let dataRegions = Object.values(res);
-      this.regions = [];
-      dataRegions.forEach(region =>{
-      this.regions.push({id: region.id,
-                         name: region.name,
-                         currency: region.currency,
-                         currency_name: region.currencyName });
-      })
+      this.regions = Object.values(res);
       this.selectedRegion = this.regions.id;
     })
   }
