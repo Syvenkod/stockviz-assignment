@@ -28,7 +28,7 @@ export class StockvizSidebarComponent implements OnInit{
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string) {
      const dialogRef = this.dialog.open(CompanySearchDialogComponent, {
-        width: '80%',
+        width: '90%',
         enterAnimationDuration,
         exitAnimationDuration,
         data: {name: this.clickedCompany}

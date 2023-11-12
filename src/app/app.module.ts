@@ -43,6 +43,13 @@ import { NgxsReadMoreModule } from '@minni/read-more';
     ReactiveFormsModule,
     MatIconModule,
     NgxsReadMoreModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
