@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StockvizSidebarComponent } from './stockviz-sidebar.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef} from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 describe('StockvizSidebarComponent', () => {
   let component: StockvizSidebarComponent;

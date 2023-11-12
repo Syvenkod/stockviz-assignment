@@ -32,7 +32,7 @@
 table {
     width: 100%;
   }
-  .mat-form-field {
+  .mat-mdc-form-field {
     font-size: 14px;
     width: 100%;
   }
@@ -41,12 +41,12 @@ table {
     width: 25%;
   }
 
-  .mat-row .mat-cell {
+  .mat-mdc-row .mat-mdc-cell {
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
     cursor: pointer;
   }
 
-  .mat-row:hover .mat-cell {
+  .mat-mdc-row:hover .mat-mdc-cell {
     border-color: currentColor;
   }
