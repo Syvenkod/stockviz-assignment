@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonService } from 'src/app/service/common-service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { CompanySearchDialogComponent } from '../company-search-dialog/company-search-dialog.component';
 
 
